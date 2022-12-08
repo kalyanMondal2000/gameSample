@@ -4,17 +4,21 @@ const initalXValue = 0;
 const waitTime = 5000;
 var pos = 0;
 
-function throttle(fn, delay){
-    let lastCalled = 0; 
+const throttleFunction=(func, delay)=>{
+ 
+    let prev = 0;
     return (...args) => {
-        let now = new Date().getTime();
-        if(now - lastCalled < delay) {
-          return;
-        }
-        lastCalled = now;
-        return fn(...args);
+
+      let now = new Date().getTime();
+
+      console.log(now-prev, delay);
+       
+      if(now - prev> delay){
+        prev = now;
+        return func(...args); 
       }
-}
+    }
+  }
 
 const gravity = () =>{
     frame = setInterval(eachFrame, 50);
@@ -53,7 +57,7 @@ window.addEventListener('load', ()=>{
 })
 document.addEventListener('keyup', (e) =>{
     if(e.keyCode == "32"){
-        throttle(jump, waitTime);
+        throttleFunction(jump, waitTime);
     }
 
 
