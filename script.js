@@ -1,7 +1,10 @@
 player = document.getElementById("player");
 const initialYValue = 300;
 const initalXValue = 0;
+const waitTime = 5000;
 var pos = 0;
+
+
 
 const gravity = () =>{
     frame = setInterval(eachFrame, 50);
@@ -38,7 +41,7 @@ window.addEventListener('load', ()=>{
 })
 document.addEventListener('keyup', (e) =>{
     if(e.keyCode == "32"){
-        jump()
+     throttle(jump(), waitTime);
     }
 
 
