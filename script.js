@@ -4,7 +4,17 @@ const initalXValue = 0;
 const waitTime = 5000;
 var pos = 0;
 
-
+function throttle(fn, delay){
+    let lastCalled = 0; 
+    return (...args) => {
+        let now = new Date().getTime();
+        if(now - lastCalled < delay) {
+          return;
+        }
+        lastCalled = now;
+        return fn(...args);
+      }
+}
 
 const gravity = () =>{
     frame = setInterval(eachFrame, 50);
@@ -33,6 +43,8 @@ const jump = () =>{
     }
 }
 
+
+
 window.addEventListener('load', ()=>{
     
     player.style.left = '10px'; 
@@ -41,7 +53,7 @@ window.addEventListener('load', ()=>{
 })
 document.addEventListener('keyup', (e) =>{
     if(e.keyCode == "32"){
-     throttle(jump(), waitTime);
+        throttle(jump, waitTime);
     }
 
 
