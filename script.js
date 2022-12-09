@@ -1,8 +1,7 @@
 //javascript
 //code by kalyan
 player = document.getElementById("player");
-const initialYValue = 300;
-const initalXValue = 0;
+
 const waitTime = 5000;
 var pos = 0;
 
