@@ -5,7 +5,7 @@ const waitTime = 5000;
 var pos = 0;
 
 const throttleFunction=(func, delay)=>{
- 
+    console.log("inside throttle")
     let prev = 0;
     return (...args) => {
 
@@ -35,6 +35,7 @@ const gravity = () =>{
 }
 
 const jump = () =>{
+    console.log("inside jump")
     id = setInterval(perFrame, 50);
     function perFrame(){
         if(pos == 10){
