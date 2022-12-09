@@ -38,21 +38,7 @@ const jump = () =>{
     }
 }
 
-const throttleFunction=()=>{
-    console.log("inside throttle")
-    let prev = 0;
-    return (...args) => {
 
-      let now = new Date().getTime();
-
-      console.log(now-prev, waitTime);
-       
-      if(now - prev> waitTime){
-        prev = now;
-        return jump(...args); 
-      }
-    }
-  }
 
 window.addEventListener('load', ()=>{
     
@@ -62,7 +48,7 @@ window.addEventListener('load', ()=>{
 })
 document.addEventListener('keyup', (e) =>{
     if(e.keyCode == "32"){
-        throttleFunction();
+        jump();
     }
 
 
