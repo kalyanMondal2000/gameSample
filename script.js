@@ -1,3 +1,5 @@
+//javascript
+//code by kalyan
 player = document.getElementById("player");
 const initialYValue = 300;
 const initalXValue = 0;
