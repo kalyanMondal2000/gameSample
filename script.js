@@ -21,9 +21,13 @@ const gravity = () =>{
 
 const jump = () =>{
     let prev = 0;
-    let now = new Date().getTime();
-    console.log("inside jump")
-    if(now - prev> waitTime){
+    return (...args) => {
+
+      let now = new Date().getTime();
+
+      console.log(now-prev, waitTime);
+       
+      if(now - prev> waitTime){
         id = setInterval(perFrame, 50);
         function perFrame(){
             if(pos == 10){
@@ -31,12 +35,9 @@ const jump = () =>{
                 clearInterval(id);
             }else{
                 pos++;
-                player.style.top = (parseInt(player.style.top) - pos)+'px';
-    }
+                player.style.top = (parseInt(player.style.top) - pos)+'px';}}}
+}}
 
-        }
-    }
-}
 
 
 
